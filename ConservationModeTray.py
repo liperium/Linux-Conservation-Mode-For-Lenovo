@@ -1,3 +1,4 @@
+#!/usr/bin/env python
 from PyQt5 import QtWidgets
 from PyQt5.QtWidgets import QApplication,QSystemTrayIcon,QMenu,QAction
 from PyQt5.QtGui import QIcon
@@ -5,7 +6,9 @@ import os,sys
 
 device="VPC2004:00"
 file = "/sys/bus/platform/drivers/ideapad_acpi/"+device+"/conservation_mode" # /sys/bus/platform/drivers/ideapad_acpi/VPC2004:00/conservation_mode
-iconPath = "/home/liperium/Documents/ConservationMode/output/icon.png"
+installPath = "/home/liperium/Documents/Linux-Conservation-Mode-For-Lenovo/" # YOUR PATH - TO CHANGE
+iconPath = installPath+"icon.png"
+
 activatedStr="actived"
 deactivatedStr="de-activated"
 conservationModeStr="Conservation mode is "
@@ -14,10 +17,10 @@ option1 = QAction("ON")
 option2 = QAction("OFF")
 
 def changeState(x):
-    function="sudo /home/liperium/Documents/ConservationMode/output/script.sh "+str(x)#+" "+file
+    function="sudo "+installPath+"CCM.sh "+str(x)
     os.system(function)
     updateMenu()
-    #script.sh = echo "$1"| sudo tee /sys/bus/platform/drivers/ideapad_acpi/VPC2004:00/conservation_mode
+
 
 def updateMenu():
     s=open(file).read()
