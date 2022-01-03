@@ -2,7 +2,7 @@
 
 A tray application that shows the status of conservation mode and helps you enable it or disable it!
 
-![Demo of application](https://github.com/liperium/Linux-Conservation-Mode-For-Lenovo/demo.gif)
+![Demo of application](https://github.com/liperium/Linux-Conservation-Mode-For-Lenovo/blob/main/demo.gif)
 
 ## Works for :
 
