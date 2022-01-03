@@ -1,6 +1,8 @@
 # Linux Conservation Mode for Lenovo laptops
 
-An app that helps knowing and turning on/off the conservation mode for lenovo laptops running linux.
+A tray application that shows the status of conservation mode and helps you enable it or disable it!
+
+![Demo of application](https://github.com/liperium/Linux-Conservation-Mode-For-Lenovo/demo.gif)
 
 ## Works for :
 
