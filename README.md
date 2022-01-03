@@ -1,20 +1,27 @@
-# Conservation Mode Linux for Lenovo laptops
+# Linux Conservation Mode for Lenovo laptops
 
 An app that helps knowing and turning on/off the conservation mode for lenovo laptops running linux.
 
 ## Works for :
-Lenovo Legion 5
+
+- Lenovo Legion 5
+
+Many more laptops can be adapted with the right settings in the .py and .sh
 
 # Installation
 
-1. Clone the project to a folder.
+1. Clone the project to a folder. (Mine is in ~/Documents)
 
 2. Go threw the .py and .sh to make sure all the folder point to the good directories.
 
 3. Add CCM.sh to the visudo
 
     1. sudo visudo
-    2. add : thisUser ALL=(ALL:ALL) NOPASSWD:/home/thisUser/Documents/Linux-Conservation-Mode-For-Lenovo/CCM.sh 
+    2. Add to the end : 
+    
+            thisUser ALL=(ALL:ALL) NOPASSWD:/home/thisUser/Documents/Linux-Conservation-Mode-For-Lenovo/CCM.sh 
 
 4. Optional : Add to startup applications
 
+### Make sure your python env is setup correcly as this is a python app
+https://stackoverflow.com/questions/3655306/ubuntu-usr-bin-env-python-no-such-file-or-directory

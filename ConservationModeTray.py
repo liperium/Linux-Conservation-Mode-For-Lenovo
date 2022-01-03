@@ -1,4 +1,4 @@
-#!/usr/bin/env python
+#!/usr/bin/env python3
 from PyQt5 import QtWidgets
 from PyQt5.QtWidgets import QApplication,QSystemTrayIcon,QMenu,QAction
 from PyQt5.QtGui import QIcon
