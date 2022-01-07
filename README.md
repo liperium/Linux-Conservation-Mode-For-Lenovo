@@ -16,14 +16,11 @@ Many more laptops can be adapted with the right settings in the .py and .sh
 
 1. Clone the project to a folder. (Mine is in ~/Documents)
 
-2. Go threw the .py and .sh to make sure all the folder point to the good directories.
+2. Go threw the .py  to make sure all the folder point to the good directories. ( And the next command )
 
-3. Add CCM.sh to the visudo
+3. Remove sudo permissions to edit conservation_mode value
 
-    1. sudo visudo
-    2. Add to the end : 
-    
-            thisUser ALL=(ALL:ALL) NOPASSWD:/home/thisUser/Documents/Linux-Conservation-Mode-For-Lenovo/CCM.sh 
+       sudo chmod +666 /sys/bus/platform/drivers/ideapad_acpi/VPC2004:00/conservation_mode
 
 4. Optional : Add to startup applications
 

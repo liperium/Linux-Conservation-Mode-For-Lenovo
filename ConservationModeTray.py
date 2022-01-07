@@ -4,63 +4,88 @@ from PyQt5.QtWidgets import QApplication,QSystemTrayIcon,QMenu,QAction
 from PyQt5.QtGui import QIcon
 import os,sys
 
-device="VPC2004:00"
-file = "/sys/bus/platform/drivers/ideapad_acpi/"+device+"/conservation_mode" # /sys/bus/platform/drivers/ideapad_acpi/VPC2004:00/conservation_mode
-installPath = "/home/liperium/Documents/Linux-Conservation-Mode-For-Lenovo/" # YOUR PATH - TO CHANGE
-iconPath = installPath+"icon.png"
+#Device Configs
+conservationModeFile = "/sys/bus/platform/drivers/ideapad_acpi/VPC2004:00/conservation_mode"
+installPath = os.getcwd()+"/"
 
+iconPathOn = installPath+"iconOn.png"
+iconPathOff = installPath+"iconOff.png"
+
+#Language
 activatedStr="actived"
 deactivatedStr="de-activated"
 conservationModeStr="Conservation mode is "
 
+#Global variables 
 option1 = QAction("ON")
 option2 = QAction("OFF")
+title = QAction("Conservation Mode")
+
+conservationMode = '1' # 1 or 0
 
 def changeState(x):
-    function="sudo "+installPath+"CCM.sh "+str(x)
+    function="echo "+str(x)+"| tee "+conservationModeFile
     os.system(function)
-    updateMenu()
+    newState = getOnOrOff()
+    updateMenu(newState)
 
 
-def updateMenu():
-    s=open(file).read()
-
-    if(s=="1" or s=="1\n") :
+def updateMenu(conservationMode):
+    if(conservationMode=='1') :
         option1.setEnabled(False)
         option2.setEnabled(True)
+        title.setIcon(QIcon(iconPathOn))
     else:
         option1.setEnabled(True)
         option2.setEnabled(False)
+        title.setIcon(QIcon(iconPathOff))
+
+def getOnOrOff():
+    return open(conservationModeFile).read()[0]
 
 
 def main():
-    app = QApplication(sys.argv)
-    app.setQuitOnLastWindowClosed(False)
-    trayIcon=QSystemTrayIcon(QIcon(iconPath))
-    trayIcon.setVisible(True)
+    
+    #Check state on launch
+    conservationMode=getOnOrOff()
 
+    app = QApplication(sys.argv)
     menu = QMenu()
-    title = QAction("Conservation Mode")
-    title.setIcon(QIcon(iconPath))
+
+    defaultIcon = QIcon(iconPathOn)
+    
+    app.setQuitOnLastWindowClosed(False)
+    sysTray=QSystemTrayIcon(defaultIcon)
+    sysTray.setVisible(True)
+
+    #Conservation Mode
+    
+    title.setIcon(defaultIcon)
     title.setEnabled(False)
     menu.addAction(title)
 
-    menu.addSeparator()
+    #-----
+    menu.addSeparator() 
 
+    #ON
     option1.triggered.connect(lambda:changeState(1))
-    option2.triggered.connect(lambda:changeState(0))
     menu.addAction(option1)
+    #OFF
+    option2.triggered.connect(lambda:changeState(0))
     menu.addAction(option2)
 
-    menu.addSeparator()
+    #-----
+    menu.addSeparator() 
 
+    #Quit
     quit = QAction("Quit")
     quit.triggered.connect(app.quit)
     menu.addAction(quit)
 
-    trayIcon.setContextMenu(menu)
+    sysTray.setContextMenu(menu)
 
-    updateMenu()
+
+    updateMenu(conservationMode)
 
     sys.exit(app.exec_())
 
