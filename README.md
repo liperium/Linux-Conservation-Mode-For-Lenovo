@@ -30,7 +30,8 @@ Many more laptops can be adapted with the right settings in the .py and .sh
 
 3. Compile with auto-py-to-exe or run direcly with python ( don't forget to put icons in the same folder )
 
-4. Optional : Add to startup applications, add as .desktop
+4. Follow steps from release guide
+
 
 ### Make sure your python env is setup correcly as this is a python app
 https://stackoverflow.com/questions/3655306/ubuntu-usr-bin-env-python-no-such-file-or-directory
