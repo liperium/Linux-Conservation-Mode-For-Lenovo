@@ -18,7 +18,7 @@ Many more laptops can be adapted with the right settings in the .py and .sh
 
 1. Download [latest release ](https://github.com/liperium/Linux-Conservation-Mode-For-Lenovo/releases)
 
-2. Go threw the .py and .sh to make sure all the folder point to the good directories.
+2. Extract to Documents
 
 3. Add CCM.sh to the visudo
 
@@ -28,7 +28,7 @@ Many more laptops can be adapted with the right settings in the .py and .sh
     
            **USER** ALL=(ALL:ALL) NOPASSWD:/home/**USER**/Documents/TCM/CCM.sh 
 
-4. Optional : Add to startup applications and make a 
+4. Optional : Add to startup applications and make a .desktop
 
 ### Make sure your python env is setup correcly as this is a python app
 https://stackoverflow.com/questions/3655306/ubuntu-usr-bin-env-python-no-such-file-or-directory
