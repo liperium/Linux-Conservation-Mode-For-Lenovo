@@ -28,7 +28,9 @@ Many more laptops can be adapted with the right settings in the .py and .sh
     
            **USER** ALL=(ALL:ALL) NOPASSWD:/home/**USER**/Documents/TCM/CCM.sh 
 
-4. Optional : Add to startup applications and make a .desktop
+4. Run TrayConservationMode
+
+5. Optional : Add to startup applications and make a .desktop
 
 ### Make sure your python env is setup correcly as this is a python app
 https://stackoverflow.com/questions/3655306/ubuntu-usr-bin-env-python-no-such-file-or-directory
