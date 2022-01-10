@@ -14,6 +14,8 @@ Many more laptops can be adapted with the right settings in the .py and .sh
 
 # Installation
 
+## If you have the same laptop ( code : VPC2004:00 )
+
 1. Clone the project to a folder. (Mine is in ~/Documents)
 
 2. Go threw the .py and .sh to make sure all the folder point to the good directories.
@@ -21,11 +23,12 @@ Many more laptops can be adapted with the right settings in the .py and .sh
 3. Add CCM.sh to the visudo
 
     1. sudo visudo
+
     2. Add to the end : 
     
-            thisUser ALL=(ALL:ALL) NOPASSWD:/home/thisUser/Documents/Linux-Conservation-Mode-For-Lenovo/CCM.sh 
+           **USER** ALL=(ALL:ALL) NOPASSWD:/home/**USER**/Documents/TrayConservationMode/CCM.sh 
 
-4. Optional : Add to startup applications
+4. Optional : Add to startup applications and make a 
 
 ### Make sure your python env is setup correcly as this is a python app
 https://stackoverflow.com/questions/3655306/ubuntu-usr-bin-env-python-no-such-file-or-directory
