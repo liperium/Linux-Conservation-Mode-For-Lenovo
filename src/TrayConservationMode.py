@@ -18,15 +18,24 @@ title = QAction("Conservation Mode")
 
 conservationMode = 1
 
+def ressourcePath(relative_path):
+    # determine if application is a script file or frozen exe
+    if getattr(sys, 'frozen', False):
+        base_path = os.path.dirname(sys.executable)
+    elif __file__:
+        base_path = os.path.dirname(__file__)
+    
+    return os.path.join(base_path, relative_path)
+
 def getOnOrOff():
     return open(conservationModeFile).read()[0]
 
 def changeState(x):
-    function="sudo "+os.path.join(installPath,"CCM.sh")+" "+str(x)
+    function="sudo "+ressourcePath("CCM.sh")+" "+str(x)
+    print("Function Call : "+function)
     os.system(function)
     
     updateMenu()
-
 
 def updateMenu():
     if(getOnOrOff()=='1') :
@@ -40,13 +49,10 @@ def updateMenu():
 
 def main():
 
-    global installPath
-    installPath = os.getcwd()
-
     global iconPathOn 
-    iconPathOn = os.path.join(installPath,"iconOn.png")
+    iconPathOn = ressourcePath("iconOn.png")
     global iconPathOff 
-    iconPathOff = os.path.join(installPath,"iconOff.png")
+    iconPathOff = ressourcePath("iconOff.png")
 
     app = QApplication(sys.argv)
     menu = QMenu()
