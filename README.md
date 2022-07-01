@@ -1,5 +1,8 @@
 # Linux Conservation Mode for Lenovo laptops
 
+## I remade this application in GO and it runs faster and smaller :) 
+https://github.com/liperium/Linux-Conservation-Mode-Utility
+
 A tray application that shows the status of conservation mode and helps you enable it or disable it!
 
 <p align="center">
