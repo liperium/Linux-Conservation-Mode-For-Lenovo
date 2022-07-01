@@ -1,8 +1,9 @@
 # Linux Conservation Mode for Lenovo laptops
 
 <b> 
-   I remade this application in GO and it runs faster and smaller :) 
-   https://github.com/liperium/Linux-Conservation-Mode-Utility
+   <span style="color:red">
+   [I remade this application in GO and it runs faster and smaller]{https://github.com/liperium/Linux-Conservation-Mode-Utility}
+   </span>
  </b>
 
 ---
