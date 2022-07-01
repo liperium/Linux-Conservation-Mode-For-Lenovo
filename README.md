@@ -2,7 +2,7 @@
 
 <b> 
    <span style="color:red">
-   [I remade this application in GO and it runs faster and smaller]{https://github.com/liperium/Linux-Conservation-Mode-Utility}
+   [I remade this application in GO and it runs faster and smaller](https://github.com/liperium/Linux-Conservation-Mode-Utility)
    </span>
  </b>
 
